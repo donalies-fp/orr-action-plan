@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orr Family | Action Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandOrange: '#fe694b',
+                        brandAqua: '#44748d',
+                        brandBlack: '#000000',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #fcfcfc; }
+        .checkbox-custom {
+            accent-color: #fe694b;
+        }
+        .checkbox-custom:checked + label {
+            color: #a1a1aa;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-10 font-sans antraliased text-brandBlack">
+    
+    <div class="max-w-3xl mx-auto bg-white shadow-[0_1px_3px_rgba(0,0,0,0.05),0_10px_15px_-5px_rgba(0,0,0,0.05)] rounded-lg overflow-hidden border border-gray-100">
+        
+        <div class="bg-brandAqua p-8 md:p-12 border-b-4 border-brandBlack">
+            <h2 class="text-xs uppercase tracking-[0.2em] text-white/80 font-medium mb-1">Donalies Financial Planning</h2>
+            <h1 class="text-4xl text-white font-extrabold tracking-tight">Orr Family <span class="font-light text-white/70">Action Plan</span></h1>
+        </div>
+
+        <div class="p-8 border-b border-gray-100 bg-gray-50/50">
+            <div class="flex justify-between items-center mb-3">
+                <span class="text-sm font-bold uppercase tracking-wider text-brandBlack">Overall Completion</span>
+                <span id="progress-text" class="text-3xl font-extrabold text-brandOrange">0%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                <div id="progress-bar" class="bg-brandOrange h-3 rounded-full transition-all duration-500 ease-out" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <div class="p-8 md:p-12 space-y-10">
+            
+            <div class="flex items-start gap-6 group">
+                <div class="flex items-center h-7">
+                    <input type="checkbox" id="task1" class="checkbox-custom h-6 w-6 rounded border-2 border-gray-300 focus:ring-brandOrange cursor-pointer transition" onchange="updateProgress()">
+                </div>
+                <div class="flex flex-col flex-grow">
+                    <label for="task1" class="text-xl text-brandBlack font-semibold cursor-pointer transition group-hover:text-brandAqua">Schedule working session with Catherine</label>
+                    <p class="text-sm text-gray-500 mt-1 max-w-lg">We will knock out current tasks live on this call. No preparation needed on your end.</p>
+                    <div class="mt-4">
+                        <a href="https://outlook.office.com/book/DonaliesFinancialPlanningPrivate@donaliesfp.com/s/Nfz7ixf6sUSl_XvKRV5AOQ2?ismsaljsauthenabled" class="inline-flex items-center px-5 py-2.5 bg-brandBlack text-white text-sm font-bold rounded hover:bg-brandAqua transition-colors duration-200">
+                            Open Catherine's Calendar
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-gray-100">
+
+            <div class="flex items-start gap-6 group">
+                <div class="flex items-center h-7">
+                    <input type="checkbox" id="task2" class="checkbox-custom h-6 w-6 rounded border-2 border-gray-300 focus:ring-brandOrange cursor-pointer transition" onchange="updateProgress()">
+                </div>
+                <div class="flex flex-col flex-grow">
+                    <label for="task2" class="text-xl text-brandBlack font-semibold cursor-pointer transition group-hover:text-brandAqua text-brandBlack">Review & Rank Financial Priorities</label>
+                    <p class="text-sm text-gray-500 mt-2">Take a moment to consider the order of these items. We will finalize the ranking during our working session:</p>
+                    <ul class="mt-4 space-y-3 px-1">
+                        <li class="flex items-center gap-3 text-sm font-medium text-brandBlack">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brandAqua"></span> 1. Setup 529 College Savings Plan
+                        </li>
+                        <li class="flex items-center gap-3 text-sm font-medium text-brandBlack">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brandAqua"></span> 2. Estate Plan Updates (Term Life Insurance?)
+                        </li>
+                        <li class="flex items-center gap-3 text-sm font-medium text-brandBlack">
+                            <span class="w-1.5 h-1.5 rounded-full bg-brandAqua"></span> 3. Student Loan Repayment Strategy, Taxes, Investments, Other?
+                        </li>
+                    </ul>
+                    <p class="text-xs text-gray-400 mt-4 italic">Is something missing? We'll add your custom goals to the list live on our call.</p>
+                </div>
+            </div>
+
+            <hr class="border-gray-100">
+
+            <div class="flex items-start gap-6 group">
+                <div class="flex items-center h-7">
+                    <input type="checkbox" id="task3" class="checkbox-custom h-6 w-6 rounded border-2 border-gray-300 focus:ring-brandOrange cursor-pointer transition" onchange="updateProgress()">
+                </div>
+                <div class="flex flex-col flex-grow">
+                    <label for="task3" class="text-xl text-brandBlack font-semibold cursor-pointer transition group-hover:text-brandAqua text-brandBlack">Login to Schwab Client Portal</label>
+                    <p class="text-sm text-gray-500 mt-1">Just requires a successful login to ensure credentials are active.</p>
+                    <div class="mt-4">
+                        <a href="https://client.schwab.com/Areas/Access/Login" target="_blank" class="text-sm font-bold text-brandAqua hover:text-brandOrange transition flex items-center">
+                            Schwab Login Portal
+                            <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div> <div class="bg-gray-50 p-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 border-t border-gray-100 gap-4">
+            <span class="font-medium text-brandBlack">Need help? Text or email Catherine directly.</span>
+            <div class="flex gap-6">
+                <span>Last updated: April 1, 2026</span>
+                <a href="mailto:catherine@donaliesfp.com" class="text-brandAqua font-semibold hover:text-brandOrange transition">Contact Advisor</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="h-20"></div>
+
+    <script>
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('.checkbox-custom');
+            const checked = document.querySelectorAll('.checkbox-custom:checked');
+            const total = checkboxes.length;
+            const count = checked.length;
+            const percentage = total > 0 ? Math.round((count / total) * 100) : 0;
+            
+            document.getElementById('progress-bar').style.width = percentage + '%';
+            document.getElementById('progress-text').innerText = percentage + '%';
+        }
+        updateProgress();
+    </script>
+</body>
+</html>
